@@ -29,6 +29,12 @@ class TestMaid(TestCase):
         self.assertEqual(maid.certificate, 'Best Maid 2012')
         self.assertEqual(maid.salary, 3000)
 
+        assert maid.name == 'BB'
+        assert maid.birthdate == date(1998, 4, 29)
+        assert maid.description == 'Super Maid of the year'
+        assert maid.certificate == 'Best Maid 2012'
+        assert maid.salary == 3000
+
     def test_model_should_have_image_fields(self):
         # Given
         mock = MagicMock(spec=File)
@@ -48,6 +54,8 @@ class TestMaid(TestCase):
 
         # Then
         self.assertEqual(maid.profile_image.name, 'profile.png')
+
+        assert maid.profile_image.name == 'profile.png'
         
         os.remove('profile.png')
 
@@ -67,4 +75,4 @@ class TestMaid(TestCase):
 
         # Then
         self.assertTrue(maid.created)
-        self.assertTrue(maid.modified)        
+        self.assertTrue(maid.modified)
